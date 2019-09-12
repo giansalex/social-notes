@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<fuentes>
+  <item>
+    <title>El Show.pe</title>
+    <path>http://127.0.0.1/Project/rss/show.xml</path>
+  </item>
+  <item>
+    <title>El Trome</title>
+    <path>http://127.0.0.1/Project/rss/Trome.xml</path>
+  </item>
+</fuentes>

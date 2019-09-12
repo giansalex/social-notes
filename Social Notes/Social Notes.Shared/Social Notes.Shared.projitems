@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>284230c3-f1b4-46ce-b6f9-8a16eefcf308</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Social_Notes</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\DataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\FuenteRss.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\ItemRss.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Speaker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\StringConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PanelPopup.xaml.cs">
+      <DependentUpon>PanelPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)view\Navegador.xaml.cs">
+      <DependentUpon>Navegador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)view\NoInternetView.xaml.cs">
+      <DependentUpon>NoInternetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)XmlData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)PanelPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)view\Navegador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)view\NoInternetView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)files\rutasRSS.xml" />
+    <Content Include="$(MSBuildThisFileDirectory)images\alert.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\imagen.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\logotrome.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\mysql.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\peru21.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\showpe.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\texto.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\video.png" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,102 @@
+﻿<Page
+    x:Class="Social_Notes.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Social_Notes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="Column0"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="{ThemeResource FlipViewButtonPressedBorderThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="150"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Height="100"  Tapped="titulo_Tapped">
+                <TextBlock x:Name="TituloPrincipal" 
+                           Style="{ThemeResource HeaderTextBlockStyle}"
+                           TextWrapping="WrapWholeWords" Padding="5"
+                           TextAlignment="Center"
+                           FontWeight="Medium">
+                    Social <Span Foreground="DarkCyan">Notes</Span>
+                    <TextBlock.Transitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition FromVerticalOffset="20" FromHorizontalOffset="60"/>
+                        </TransitionCollection>
+                    </TextBlock.Transitions>
+                </TextBlock>
+                <Border x:Name="HomeIcon" Background="DarkCyan" Margin="4,20,20,0"  Visibility="Collapsed">
+                    <SymbolIcon Symbol="Home"/>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ListView x:Name="ListaRss" 
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                          SelectionChanged="ListaRss_SelectionChanged">
+ <!--                     <ListView.Header>
+                      <Line X1="0" Y1="0" X2="800" Y2="0" Stroke="Azure" StrokeThickness="5"/>
+                    </ListView.Header>-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Border Background="DarkCyan" 
+                                        Width="80" 
+                                        Height="80">
+                                    <Image Source="{Binding Imagen}"  Stretch="Fill"/>
+                                </Border>
+                                <TextBlock Style="{ThemeResource SubheaderTextBlockStyle}" 
+                                           Text="{Binding Fuente}" ToolTipService.ToolTip="{Binding SubTitle}"
+                                           VerticalAlignment="Center" Margin="6,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            
+        </Grid>
+        <Frame x:Name="FrameMain" Grid.Column="1" CacheSize="1" Navigated="FrameMain_Navigated">
+            <Frame.Transitions>
+                <TransitionCollection>
+                    <ContentThemeTransition/>
+                </TransitionCollection>
+            </Frame.Transitions>
+        </Frame>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="MinWindows">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Column0" Storyboard.TargetProperty="Width">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="100"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HomeIcon" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TituloPrincipal" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="FullWindows">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Column0" Storyboard.TargetProperty="Width">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="255"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HomeIcon" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TituloPrincipal" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>
